@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Inquiry {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String
+  message    String   @db.Text
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("inquiries")
+}
+
+model WorkWithUsSignup {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  phone         String
+  operation_type String?
+  message       String   @db.Text
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  @@map("work_with_us_signups")
+}
+
+model NewsletterSubscriber {
+  id         String   @id @default(cuid())
+  email      String   @unique
+  name       String?
+  subscribed Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("newsletter_subscribers")
+}

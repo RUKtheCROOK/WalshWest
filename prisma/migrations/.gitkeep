@@ -1,0 +1,2 @@
+# Migrations will be generated here when running `pnpm db:migrate`
+# For the skeleton, we're not running migrations against a real database yet.

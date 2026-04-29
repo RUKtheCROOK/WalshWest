@@ -6,29 +6,12 @@
   },
   "model": "opus",
   "permissions": {
-    "allow": [
-      "Bash(pnpm:*)",
-      "Bash(npm:*)",
-      "Bash(npx:*)",
-      "Bash(git:*)",
-      "Bash(node:*)",
-      "Read(**)",
-      "Write(src/**)",
-      "Write(tests/**)",
-      "Write(docs/**)",
-      "Write(package.json)"
-    ],
+    "defaultMode": "bypassPermissions",
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(git push --force:*)",
       "Write(.env)",
       "Write(.env.production)"
-    ],
-    "ask": [
-      "Bash(git push:*)",
-      "Bash(git merge:*)",
-      "Bash(pnpm add:*)",
-      "Bash(pnpm remove:*)"
     ]
   }
 }
