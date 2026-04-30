@@ -40,42 +40,76 @@ export function InquiryForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
-        <Label htmlFor="name">Name</Label>
-        <Input id="name" {...register("name")} />
-        {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name.message}</p>}
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <div className="space-y-2">
+        <Label htmlFor="name" className="text-foreground">Name</Label>
+        <Input
+          id="name"
+          {...register("name")}
+          className="transition-shadow focus-visible:shadow-sm"
+        />
+        {errors.name && (
+          <p className="text-sm font-medium text-destructive">{errors.name.message}</p>
+        )}
       </div>
 
-      <div>
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" type="email" {...register("email")} />
-        {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>}
+      <div className="space-y-2">
+        <Label htmlFor="email" className="text-foreground">Email</Label>
+        <Input
+          id="email"
+          type="email"
+          {...register("email")}
+          className="transition-shadow focus-visible:shadow-sm"
+        />
+        {errors.email && (
+          <p className="text-sm font-medium text-destructive">{errors.email.message}</p>
+        )}
       </div>
 
-      <div>
-        <Label htmlFor="phone">Phone</Label>
-        <Input id="phone" type="tel" {...register("phone")} />
-        {errors.phone && <p className="text-sm text-red-600 mt-1">{errors.phone.message}</p>}
+      <div className="space-y-2">
+        <Label htmlFor="phone" className="text-foreground">Phone</Label>
+        <Input
+          id="phone"
+          type="tel"
+          {...register("phone")}
+          className="transition-shadow focus-visible:shadow-sm"
+        />
+        {errors.phone && (
+          <p className="text-sm font-medium text-destructive">{errors.phone.message}</p>
+        )}
       </div>
 
-      <div>
-        <Label htmlFor="message">Message</Label>
-        <Textarea id="message" rows={5} {...register("message")} />
-        {errors.message && <p className="text-sm text-red-600 mt-1">{errors.message.message}</p>}
+      <div className="space-y-2">
+        <Label htmlFor="message" className="text-foreground">Message</Label>
+        <Textarea
+          id="message"
+          rows={5}
+          {...register("message")}
+          className="resize-none transition-shadow focus-visible:shadow-sm"
+        />
+        {errors.message && (
+          <p className="text-sm font-medium text-destructive">{errors.message.message}</p>
+        )}
       </div>
 
       {message && (
         <div
-          className={`p-4 rounded-md ${
-            message.type === "success" ? "bg-green-50 text-green-800" : "bg-red-50 text-red-800"
+          className={`border p-4 ${
+            message.type === "success"
+              ? "border-green-200 bg-green-50 text-green-900"
+              : "border-destructive bg-red-50 text-red-900"
           }`}
         >
-          {message.text}
+          <p className="text-sm font-medium">{message.text}</p>
         </div>
       )}
 
-      <Button type="submit" disabled={submitting}>
+      <Button
+        type="submit"
+        disabled={submitting}
+        className="w-full transition-all hover:shadow-sm"
+        size="lg"
+      >
         {submitting ? "Submitting..." : "Submit Inquiry"}
       </Button>
     </form>

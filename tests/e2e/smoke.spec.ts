@@ -33,10 +33,12 @@ test("navigation works", async ({ page }) => {
   await expect(page).toHaveURL(/\/services/);
   await expect(page.getByRole("heading", { name: /Our Services/i })).toBeVisible();
 
-  // Navigate to Events page
-  await page.getByRole("link", { name: /Events/i }).click();
-  await expect(page).toHaveURL(/\/events/);
-  await expect(page.getByRole("heading", { name: /Upcoming Events/i })).toBeVisible();
+  // Navigate to Calendar page
+  await page.getByRole("link", { name: /Calendar/i }).click();
+  await expect(page).toHaveURL(/\/calendar/);
+  await expect(
+    page.getByRole("heading", { name: /Reports & Events to Watch/i }),
+  ).toBeVisible();
 
   // Navigate to Contact page
   await page.getByRole("link", { name: /Contact/i }).click();
