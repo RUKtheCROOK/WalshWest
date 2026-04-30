@@ -147,7 +147,7 @@ export function Footer() {
             <p className="text-xs leading-relaxed text-muted-foreground">
               All information, communications, publications, and reports,
               including this specific material, used and distributed by Walsh
-              Trading, Inc. (&ldquo;WTI&rdquo;) shall not be construed as a
+              Trading, Inc. (&ldquo;WTI&rdquo;) shall be construed as a
               solicitation for entering into a derivatives transaction. WTI
               does not distribute research reports, employ research analysts,
               or maintain a research department as defined in CFTC Regulation
