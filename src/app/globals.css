@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Strict white + navy duotone for commodities firm */
+    --background: 0 0% 100%;
+    --foreground: 215 65% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 65% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 65% 15%;
+
+    /* Deep navy primary - #0a1d3f */
+    --primary: 215 65% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Navy tint for secondary surfaces */
+    --secondary: 215 30% 96%;
+    --secondary-foreground: 215 65% 15%;
+
+    /* Navy-derived muted tones */
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Copper accent - #b8893a - use sparingly */
+    --accent: 38 55% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Hairline borders from navy */
+    --border: 215 25% 85%;
+    --input: 215 25% 75%;
+    --ring: 215 65% 15%;
+
+    --radius: 0.125rem;
+
+    /* Institutional semantic tokens */
+    --surface-subtle: 215 30% 98%;
+    --surface-elevated: 0 0% 100%;
+    --text-emphasis: 215 70% 10%;
+    --navy-80: 215 60% 30%;
+    --navy-60: 215 50% 50%;
+    --navy-40: 215 40% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Enhanced focus states for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Editorial typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    color: hsl(var(--text-emphasis));
+  }
+
+  h1 {
+    @apply font-serif;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Tabular numerals for dates, prices, metadata */
+  time, .tabular {
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Small caps for institutional eyebrows and labels */
+  .small-caps {
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+  }
+
+  /* Hairline rule utility */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
+  }
+
+  /* Topographic pattern for hero backgrounds */
+  .topo-pattern {
+    background-image:
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(0deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
